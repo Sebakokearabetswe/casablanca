@@ -1,1 +1,622 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap');
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #f59e0b;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --gray: #94a3b8;
+  --success: #10b981;
+  
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('header');
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    // Always show header at the very top
+    if (currentScrollY <= 0) {
+      header.classList.remove('hide');
+      return;
+    }
+
+    // Hide when scrolling down, show when scrolling up
+    if (currentScrollY > lastScrollY) {
+      header.classList.add('hide');
+    } else {
+      header.classList.remove('hide');
+    }
+
+    lastScrollY = currentScrollY;
+  });
+});
+</script>
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.7;
+  color: var(--dark);
+  background: var(--light);
+  background-image: 
+    radial-gradient(circle at 75% 50%, rgba(235, 242, 255, 0.8) 0%, transparent 25%),
+    radial-gradient(circle at 25% 80%, rgba(255, 245, 235, 0.6) 0%, transparent 25%);
+  min-height: 100vh;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: var(--space-md);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+
+p {
+  margin-bottom: var(--space-md);
+  color: #334155;
+}
+
+/* ===== LAYOUT CONTAINERS ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: var(--space-lg);
+}
+
+header, footer {
+  grid-column: 1 / -1;
+}
+
+main {
+  margin: var(--space-lg) 0;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: var(--space-xs) 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--primary);
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+nav ul li a.active::after {
+  width: 100%;
+}
+
+/* ===== IMAGE STYLES ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card img {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  background: white;
+  padding: 10px;
+  mix-blend-mode: multiply;
+}
+
+.banner {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== CARD & CONTAINER STYLES ===== */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card .badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--secondary);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--dark);
+  color: white;
+  padding: var(--space-xl) 0;
+  margin-top: var(--space-xl);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  
+  nav ul {
+    gap: var(--space-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: var(--space-sm) 0;
+  }
+  
+  .logo h1 {
+    font-size: 1.25rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  
+  nav ul li {
+    width: 100%;
+    padding: var(--space-xs) 0;
+  }
+}
+/* ===== ENHANCED BASE STYLES ===== */
+:root {
+  /* Enhanced Color Palette */
+  --primary: #3b82f6; /* Slightly brighter blue */
+  --primary-dark: #2563eb;
+  --secondary: #f59e0b;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --gray: #94a3b8;
+  --success: #10b981;
+  
+  /* New sophisticated colors */
+  --nav-bg: rgba(15, 23, 42, 0.98); /* Deep navy with transparency */
+  --footer-bg: #0f172a; /* Rich dark blue */
+  --nav-text: rgba(255, 255, 255, 0.9);
+  --nav-text-hover: #ffffff;
+  --nav-border: rgba(255, 255, 255, 0.1);
+  
+  /* Enhanced spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  
+  /* Enhanced shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.15);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ===== ENHANCED HEADER & NAVIGATION ===== */
+header {
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--nav-text-hover);
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+nav ul li a {
+  color: var(--nav-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Increased letter spacing */
+  padding: var(--space-xs) 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+nav ul li a:hover {
+  color: var(--nav-text-hover);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+nav ul li a::after {
+  background: var(--secondary); /* Changed to secondary color for accent */
+  height: 3px; /* Slightly thicker underline */
+}
+
+nav ul li a.active {
+  color: var(--nav-text-hover);
+  font-weight: 600;
+}
+
+/* ===== ENHANCED TYPOGRAPHY ===== */
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.7;
+  color: var(--dark);
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.5px;
+}
+
+h1 { 
+  font-size: 2.8rem; /* Slightly larger */
+  line-height: 1.2;
+}
+
+h2 { 
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+}
+
+p {
+  margin-bottom: var(--space-md);
+  color: #334155;
+  font-size: 1.05rem; /* Slightly larger body text */
+  line-height: 1.8; /* More breathing room */
+}
+
+/* ===== ENHANCED FOOTER ===== */
+footer {
+  background: var(--footer-bg);
+  color: white;
+  padding: var(--space-xl) 0;
+  margin-top: var(--space-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+/* Add some interactive elements to footer links */
+.footer-content a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-content a:hover {
+  color: white;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.footer-content a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+.footer-content a:hover::after {
+  width: 100%;
+}
+
+/* ===== ADDITIONAL ENHANCEMENTS ===== */
+/* Add a subtle gradient to the navigation */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* Add a hover effect to logo */
+.logo {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-md);
+  }
+}
+/* ===== FULL-WIDTH HEADER & FOOTER ===== */
+header {
+  width: 100vw;
+  left: 0;
+  position: sticky;
+  top: 0;
+}
+
+/* Header content stays centered */
+.header-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Full-width footer */
+footer {
+  width: 100vw;
+  left: 0;
+}
+
+/* Footer content stays centered */
+.footer-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* ===== FULL-WIDTH FIXES ===== */
+body {
+  margin: 0; /* Remove default body margin */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+header, footer {
+  width: 100%; /* Use 100% instead of 100vw to avoid scroll issues */
+  position: relative; /* Reset positioning */
+  left: 0;
+  right: 0;
+}
+
+/* Sticky header with full-width background */
+header {
+  position: sticky;
+  top: 0;
+}
+
+/* Ensure content stays centered INSIDE the full-width bars */
+.header-content, .footer-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
+}
+
+/* For modern browsers: bleed-to-edge effect */
+@supports (width: 100dvw) {
+  header::before, footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    right: -50vw;
+    width: 100dvw;
+    height: 100%;
+    background: inherit;
+    z-index: -1;
+    margin: 0 auto;
+  }
+}
+/* ===== 100% WORKING STICKY HEADER ===== */
+body {
+  margin: 0;
+  padding-top: 70px; /* Must match header height */
+}
+
+header {
+  position: relative; /* Force it to stay at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* Ensures it stays above everything */
+  background: var(--nav-bg);
+  padding: 30px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+/* Optional: Hide on scroll down, show on scroll up */
+header.hide {
+  transform: translateY(-100%);
+}
+#topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 40px; /* Smaller height */
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    transition: top 0.3s;
+    z-index: 1000;
+  }

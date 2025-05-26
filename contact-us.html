@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Casablanca Gadgets</title>
+     <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="images/logo.png" alt="Casablanca Gadgets Logo">
+                <h1>Casablanca Gadgets</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="stock.html">Stock</a></li>
+                    <li><a href="new-arrivals.html">New Arrivals</a></li>
+                    <li><a href="prices.html">Prices</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <aside class="sidebar-left">
+            <h2>Store Locations</h2>
+            <div class="location">
+                <h3>Downtown</h3>
+                <p>123 Tech Street<br>Casablanca</p>
+                <p>Phone: +212 522 123 456</p>
+            </div>
+            <div class="location">
+                <h3>Marina Mall</h3>
+                <p>Level 2, Marina Mall<br>Casablanca</p>
+                <p>Phone: +212 522 789 012</p>
+            </div>
+        </aside>
+
+        <main>
+            <h2>Contact Us</h2>
+            <p>Have questions or feedback? We'd love to hear from you!</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject">
+                        <option value="general">General Inquiry</option>
+                        <option value="product">Product Question</option>
+                        <option value="service">Service Request</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="complaint">Complaint</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </main>
+
+        <aside class="sidebar-right">
+            <h2>Business Hours</h2>
+            <table>
+                <tr>
+                    <td>Monday - Friday</td>
+                    <td>9:00 AM - 8:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>10:00 AM - 6:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td>11:00 AM - 5:00 PM</td>
+                </tr>
+            </table>
+            
+            <h2>Follow Us</h2>
+            <div class="social-links">
+                <a href="#">Facebook</a><br>
+                <a href="#">Instagram</a><br>
+                <a href="#">Twitter</a>
+            </div>
+        </aside>
+
+        <footer>
+            <p>&copy; 2023 Casablanca Gadgets. All Rights Reserved.</p>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

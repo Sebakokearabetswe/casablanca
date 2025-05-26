@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prices - Casablanca Gadgets</title>
+     <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="images/logo.png" alt="Casablanca Gadgets Logo">
+                <h1>Casablanca Gadgets</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="stock.html">Stock</a></li>
+                    <li><a href="new-arrivals.html">New Arrivals</a></li>
+                    <li><a href="prices.html">Prices</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <aside class="sidebar-left">
+            <h2>Price Match</h2>
+            <p>We'll match any competitor's price on identical products. Just show us the advertised price!</p>
+            <a href="#" class="btn">Learn More</a>
+        </aside>
+
+        <main>
+            <h2>Our Pricing</h2>
+            <p>We offer competitive prices on all our products. Check out our current price list below.</p>
+            
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>iPhone 14 Pro</td>
+                        <td>128GB, Space Black</td>
+                        <td>$999.99</td>
+                    </tr>
+                    <tr>
+                        <td>Galaxy S23 Ultra</td>
+                        <td>256GB, Phantom Black</td>
+                        <td>$1,199.99</td>
+                    </tr>
+                    <tr>
+                        <td>MacBook Air M2</td>
+                        <td>13.6", 8GB RAM, 256GB SSD</td>
+                        <td>$1,099.99</td>
+                    </tr>
+                    <tr>
+                        <td>iPad Air (5th Gen)</td>
+                        <td>64GB, Wi-Fi, Space Gray</td>
+                        <td>$599.99</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch Series 8</td>
+                        <td>GPS, 45mm, Midnight</td>
+                        <td>$429.99</td>
+                    </tr>
+                    <tr>
+                        <td>AirPods Pro 2</td>
+                        <td>2nd Generation</td>
+                        <td>$249.99</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Service Prices</h3>
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Screen Replacement</td>
+                        <td>Most smartphone models</td>
+                        <td>From $99.99</td>
+                    </tr>
+                    <tr>
+                        <td>Battery Replacement</td>
+                        <td>Most smartphone models</td>
+                        <td>From $49.99</td>
+                    </tr>
+                    <tr>
+                        <td>Device Setup</td>
+                        <td>Full setup and data transfer</td>
+                        <td>$29.99</td>
+                    </tr>
+                    <tr>
+                        <td>Premium Support</td>
+                        <td>Annual subscription</td>
+                        <td>$149.99</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <aside class="sidebar-right">
+            <h2>Price Alerts</h2>
+            <p>Sign up to get notified when prices drop on your favorite products!</p>
+            <form>
+                <div class="form-group">
+                    <label for="price-email">Email Address</label>
+                    <input type="email" id="price-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-interest">Product Interest</label>
+                    <select id="product-interest">
+                        <option value="smartphones">Smartphones</option>
+                        <option value="laptops">Laptops</option>
+                        <option value="tablets">Tablets</option>
+                        <option value="wearables">Wearables</option>
+                        <option value="audio">Audio</option>
+                        <option value="all">All Products</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </aside>
+
+        <footer>
+            <p>&copy; 2023 Casablanca Gadgets. All Rights Reserved.</p>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
